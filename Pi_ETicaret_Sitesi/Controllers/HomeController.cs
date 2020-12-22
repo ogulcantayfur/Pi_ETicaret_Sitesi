@@ -23,6 +23,7 @@ namespace Pi_ETicaret_Sitesi.Controllers
             return View();
         }
 
+        //deneme
         public IActionResult Privacy()
         {
             return View();
