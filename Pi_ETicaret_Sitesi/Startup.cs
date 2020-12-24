@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Pi_ETicaret_Sitesi.Contexts;
 
 namespace Pi_ETicaret_Sitesi
 {
@@ -23,6 +24,7 @@ namespace Pi_ETicaret_Sitesi
         
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddControllersWithViews();
         }
 
