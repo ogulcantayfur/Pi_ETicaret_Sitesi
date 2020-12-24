@@ -24,6 +24,18 @@ namespace Pi_ETicaret_Sitesi.Controllers
             return View(_urunRepository.GetirHepsi());
         }
 
+        public IActionResult UrunDetay(int id)
+        {  
+            return View(_urunRepository.GetirIdile(id));
+        }
+
+
+
+
+
+
+
+
         public IActionResult Privacy()
         {
             return View();

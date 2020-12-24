@@ -8,6 +8,6 @@ namespace Pi_ETicaret_Sitesi.Interfaces
 {
     public interface IUrunRepository : IGenericRepository<Urun>
     {
-
+        public List<Kategori> GetirKategoriler(int urunId);
     }
 }
