@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model List<Pi_ETicaret_Sitesi.Entities.Urun>
+
+<!DOCTYPE html>
 
 <html land="tr">
 <head>
@@ -8,9 +10,18 @@
 
 
 
-<body>
-    <h4 class="text-danger">Pi E-Ticaret Anasayfasına Hoşgeldiniz</h4>
-</body>
+<div class="row">
+    <div class="col-md-3">
+        @await Component.InvokeAsync("KategoriComponent")
+
+    </div>
+
+    <div class="col-md-9">
+
+        @await Component.InvokeAsync("UrunComponent")
+    </div>
+
+</div>
 
 
 </html>

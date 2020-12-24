@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Pi_ETicaret_Sitesi.Interfaces;
 using Pi_ETicaret_Sitesi.Models;
 using System;
 using System.Collections.Generic;
@@ -11,16 +12,16 @@ namespace Pi_ETicaret_Sitesi.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IUrunRepository _urunRepository;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
+        public HomeController(IUrunRepository urunRepository)
+        { 
+            _urunRepository = urunRepository;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(_urunRepository.GetirHepsi());
         }
 
         public IActionResult Privacy()

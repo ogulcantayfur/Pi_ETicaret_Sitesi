@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Pi_ETicaret_Sitesi.Contexts;
+using Pi_ETicaret_Sitesi.Repositories;
+using Pi_ETicaret_Sitesi.Interfaces;
 
 namespace Pi_ETicaret_Sitesi
 {
@@ -24,7 +26,10 @@ namespace Pi_ETicaret_Sitesi
         
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            // scoped ilgili isteði yapan kiþiye tek bir nesne örneði döner.
+            services.AddScoped<IKategoriRepository, KategoriRepository>();
+            services.AddScoped<IUrunKategoriRepository, UrunKategoriRepository>();
+            services.AddScoped<IUrunRepository, UrunRepository>();
             services.AddControllersWithViews();
         }
 
