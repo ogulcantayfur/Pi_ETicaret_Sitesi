@@ -1,1 +1,28 @@
-﻿<h1>Admin panel</h1>
+﻿@model List<Urun>
+
+<a asp-action="Ekle" asp-controller="Home" asp-area="Admin" class="btn btn-primary 
+   btn-sm my-2">Ekle</a>
+<table class="table table-sm table-bordered table-hover mt-2">
+
+    <tr>
+        <th>Id</th>
+        <th>Resim</th>
+        <th>Ad</th>
+        <th>Fiyat</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>a</td>
+            <td>@item.ad</td>
+            <td>@item.fiyat</td>
+        </tr>
+    }
+
+
+
+
+
+</table>
