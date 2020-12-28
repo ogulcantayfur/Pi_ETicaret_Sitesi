@@ -16,9 +16,11 @@ namespace Pi_ETicaret_Sitesi.Areas.Admin.Controllers
     public class HomeController : Controller
     {
         private readonly IUrunRepository _urunRepository;
+        private readonly IKategoriRepository _kategoriRepository;
 
-        public HomeController(IUrunRepository urunRepository)
+        public HomeController(IUrunRepository urunRepository, IKategoriRepository kategoriRepository)
         {
+            _kategoriRepository=kategoriRepository;
             _urunRepository = urunRepository;
         }
         public IActionResult Index()
@@ -114,7 +116,52 @@ namespace Pi_ETicaret_Sitesi.Areas.Admin.Controllers
         }
 
 
+        public IActionResult KategoriAta(int id)
+        {
+            var urunKategorileri = _urunRepository.GetirKategoriler(id).Select(I=>I.ad);
+            var kategoriler = _kategoriRepository.GetirHepsi();
 
+            TempData["UrunId"] = id;
+            List<KategoriAtama> list = new List<KategoriAtama>();
+
+            foreach(var item in kategoriler)
+            {
+                KategoriAtama model = new KategoriAtama();
+                model.kategoriId = item.id;
+                model.kategoriAd = item.ad;
+                model.varMi = urunKategorileri.Contains(item.ad);
+
+                list.Add(model);
+            }
+            return View(list);
+        }
+
+        [HttpPost]
+        public IActionResult KategoriAta(List<KategoriAtama> list)
+        {
+            int urunId = (int)TempData["UrunId"];
+            foreach (var item in list)
+            {
+                if(item.varMi)
+                {
+                    _urunRepository.EkleKategori(new UrunKategori
+                    {
+                        kategoriId = item.kategoriId,
+                        urunId = urunId
+                    });
+                }
+                else
+                {
+                    _urunRepository.SilKategori(new UrunKategori
+                    {
+                        kategoriId = item.kategoriId,
+                        urunId = urunId
+                    });
+                }
+            }
+            return RedirectToAction("Index");
+
+        }
 
     }
 }

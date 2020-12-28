@@ -1,0 +1,19 @@
+﻿@model List<KategoriAtama>
+
+<form asp-action="KategoriAta" method="post">
+
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="form-check">
+            <input type="hidden" asp-for="@Model[i].kategoriId" />
+            <input type="hidden" asp-for="@Model[i].kategoriAd" />
+
+
+            <input type="checkbox" asp-for="@Model[i].varMi" class="form-check-input" />
+            <label class="form-check-label">@Model[i].kategoriAd</label>
+        </div>
+    }
+
+    <button type="submit" class="btn btn-info">Kaydet</button>
+
+</form>

@@ -10,6 +10,13 @@ namespace Pi_ETicaret_Sitesi.Repositories
 {
     public class UrunRepository :GenericRepository<Urun>,IUrunRepository
     {
+        private readonly IUrunKategoriRepository _urunKategoriRepository;
+        public UrunRepository(IUrunKategoriRepository urunKategoriRepository)
+        {
+            _urunKategoriRepository = urunKategoriRepository;
+        }
+     
+
         public List<Kategori> GetirKategoriler(int urunId)
         {
             using var context = new Context();
@@ -30,6 +37,41 @@ namespace Pi_ETicaret_Sitesi.Repositories
                     id = I.kategori.id
 
                 }).ToList();
+        }
+
+        public void SilKategori(UrunKategori urunKategori)
+        {
+           var kayitKontrol= _urunKategoriRepository.GetirFiltreile(I => I.kategoriId == urunKategori.kategoriId && I.urunId == urunKategori.urunId);
+            if(kayitKontrol!=null)
+            {
+                _urunKategoriRepository.Sil(kayitKontrol);
+            }
+        }
+
+        public void EkleKategori(UrunKategori urunKategori)
+        {
+            var kayitKontrol = _urunKategoriRepository.GetirFiltreile(I => I.kategoriId == urunKategori.kategoriId && I.urunId == urunKategori.urunId);
+            if (kayitKontrol == null)
+            {
+                _urunKategoriRepository.Ekle(urunKategori);
+            }
+        }
+
+        public List<Urun> GetirKategoriIdile(int kategoriId)
+        {
+            using var context = new Context();
+
+            return context.Urunler.Join(context.UrunKategoriler, u => u.id, uc => uc.urunId, (urun, urunKategori) => new
+            {
+                Urun = urun,
+                UrunKategori = urunKategori
+            }).Where(I => I.UrunKategori.kategoriId == kategoriId).Select(I => new Urun
+            {
+                id=I.Urun.id,
+                ad=I.Urun.ad,
+                fiyat=I.Urun.fiyat,
+                resim = I.Urun.resim
+            }).ToList();
         }
     }
 }
