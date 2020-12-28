@@ -31,6 +31,8 @@
                     <a asp-action="Index" asp-controller="Home" asp-area="Admin" class="nav-link">Admin Girişi</a>
                 </li>
 
+                <partial name="_LoginPartial.cshtml" />
+
           
 
             </ul>
@@ -52,6 +54,6 @@
 
     </div>
     <script src="~/jquery/jquery.min.js"></script>
-    @RenderSection("JavaScript",false)
+    @RenderSection("Scripts",false)
 </body>
 </html>

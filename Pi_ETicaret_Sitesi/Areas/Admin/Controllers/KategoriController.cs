@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Pi_ETicaret_Sitesi.Entities;
 using Pi_ETicaret_Sitesi.Interfaces;
 using Pi_ETicaret_Sitesi.Models;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace Pi_ETicaret_Sitesi.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class KategoriController : Controller
     {
         private readonly IKategoriRepository _kategoriRepository;

@@ -15,8 +15,12 @@ using Microsoft.AspNetCore.Identity;
 using Pi_ETicaret_Sitesi.Entities;
 using Microsoft.AspNetCore.Http;
 
+
 namespace Pi_ETicaret_Sitesi
+
 {
+
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -27,8 +31,11 @@ namespace Pi_ETicaret_Sitesi
         public IConfiguration Configuration { get; }
 
         
+
+
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages();
 
             services.AddAuthentication();
             // scoped ilgili isteði yapan kiþiye tek bir nesne örneði döner.
@@ -38,21 +45,9 @@ namespace Pi_ETicaret_Sitesi
             services.AddControllersWithViews();
             services.AddSession();
 
-            services.AddDbContext<Context>();
-            services.AddIdentity<AppUser, IdentityRole>(opt =>
-            {
-                opt.Password.RequireDigit = false;
-                opt.Password.RequireLowercase = false;
-                opt.Password.RequiredLength = 1;
-                opt.Password.RequireUppercase = false;
-                opt.Password.RequireNonAlphanumeric = false;
-
-
-            }).AddEntityFrameworkStores<Context>();
-
             services.ConfigureApplicationCookie(opt =>
             {
-                opt.LoginPath = new PathString("/Home/GirisYap");
+                opt.LoginPath = new PathString("/Identity/Account/Login");
                 opt.Cookie.Name = "piEticaretGiris";
                 opt.Cookie.HttpOnly = true;
                 opt.Cookie.SameSite = SameSiteMode.Strict;
@@ -60,9 +55,42 @@ namespace Pi_ETicaret_Sitesi
             });
         }
 
-        
+        private async Task CreateUserRoles(IServiceProvider serviceProvider)
+        {
+            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var UserManager = serviceProvider.GetRequiredService<UserManager<AppUser>>();
+            var dbContext = serviceProvider.GetRequiredService<Context>();
+
+            IdentityResult roleResult1;
+            IdentityResult roleResult2;
+            //Adding Admin Role
+            var roleCheck1 = await RoleManager.RoleExistsAsync("Admin");
+            var roleCheck2 = await RoleManager.RoleExistsAsync("User");
+            if (!roleCheck1)
+            {
+                //create the roles and seed them to the database
+                roleResult1 = await RoleManager.CreateAsync(new IdentityRole("Admin"));
+            }
+            if (!roleCheck2)
+            {
+                //create the roles and seed them to the database
+                roleResult2 = await RoleManager.CreateAsync(new IdentityRole("User"));
+            }   
+
+            if (!dbContext.Users.Any(u => u.UserName == "ogulcan"))
+            {
+                var adminUser = new AppUser
+                {
+                    UserName = "ogulcan",
+                };
+                var result = await UserManager.CreateAsync(adminUser, "1");
+                await UserManager.AddToRoleAsync(adminUser, new IdentityRole("Admin").Name);
+            }
+        }
+
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, 
-            UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
+            UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -73,7 +101,7 @@ namespace Pi_ETicaret_Sitesi
                 app.UseExceptionHandler("/Home/Error");   
                 app.UseHsts();
             }
-            BaslangicGirisKimligi.OlusturAdmin(userManager, roleManager);
+            
             app.UseRouting();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -83,13 +111,20 @@ namespace Pi_ETicaret_Sitesi
             app.UseAuthorization();
 
             
+
+            CreateUserRoles(serviceProvider).Wait();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(name: "areas", pattern: "{area}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
+
+
+
+
     }
 }

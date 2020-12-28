@@ -49,27 +49,6 @@ namespace Pi_ETicaret_Sitesi.Controllers
             return HttpContext.Session.GetString(key);
         }   
 
-        public IActionResult GirisYap()
-        {
-            return View(new KullaniciGirisModel());
-        }
-
-        [HttpPost]
-        public IActionResult GirisYap(KullaniciGirisModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var signInResult = _signInManager.PasswordSignInAsync(model.KullaniciAd, model.Sifre, model.BeniHatırla, false).Result;
-
-                if (signInResult.Succeeded)
-                {
-                    return RedirectToAction("Index", "Home", new { area = "Admin" });
-                }
-                ModelState.AddModelError("", "Kullanici adi veya şifre hatalı");
-            }
-            return View(model);
-        }
-
         public IActionResult Privacy()
         {
             return View();

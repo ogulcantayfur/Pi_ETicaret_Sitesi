@@ -9,6 +9,7 @@
         <th>Resim</th>
         <th>Ad</th>
         <th>Fiyat</th>
+        <th>İşlemler</th>
     </tr>
 
     @foreach (var item in Model)
@@ -19,7 +20,7 @@
             <td>@item.ad</td>
             <td>@item.fiyat</td>
             <td>
-                <a asp-action="Güncelle" asp-controller="Home" asp-route-id="@item.id" asp-area="Admin" class="btn btn-warning btn-sm">Güncelle</a>
+                <a asp-action="Guncelle" asp-controller="Home" asp-route-id="@item.id" asp-area="Admin" class="btn btn-warning btn-sm">Güncelle</a>
                 <a asp-action="Sil" asp-controller="Home" asp-route-id="@item.id" asp-area="Admin" class="btn btn-danger btn-sm">Sil</a>
             </td>
         </tr>

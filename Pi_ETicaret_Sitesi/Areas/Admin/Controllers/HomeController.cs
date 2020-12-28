@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Pi_ETicaret_Sitesi.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
         private readonly IUrunRepository _urunRepository;
