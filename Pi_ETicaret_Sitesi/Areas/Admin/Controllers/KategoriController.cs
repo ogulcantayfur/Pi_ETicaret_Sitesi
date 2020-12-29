@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Pi_ETicaret_Sitesi.Entities;
-using Pi_ETicaret_Sitesi.Interfaces;
 using Pi_ETicaret_Sitesi.Models;
+using Pi_ETicaret_Sitesi.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +13,12 @@ namespace Pi_ETicaret_Sitesi.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class KategoriController : Controller
     {
-        private readonly IKategoriRepository _kategoriRepository;
+        private readonly KategoriRepository _kategoriRepository;
 
-        public KategoriController(IKategoriRepository kategoriRepository)
+        public KategoriController()
         {
-            _kategoriRepository = kategoriRepository;
+            KategoriRepository k1 =new KategoriRepository();
+            _kategoriRepository = k1;
         }
 
         public IActionResult Index()

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Pi_ETicaret_Sitesi.Interfaces;
+using Pi_ETicaret_Sitesi.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +9,18 @@ namespace Pi_ETicaret_Sitesi.ViewComponents
 {
     public class UrunComponent : ViewComponent
     {
-        private readonly IUrunRepository _urunRepository;
-        public UrunComponent(IUrunRepository urunRepository)
+        private readonly UrunRepository _urunRepository;
+        public UrunComponent()
         {
-            _urunRepository = urunRepository;
+            UrunRepository u1 = new UrunRepository();
+            _urunRepository = u1;
         }
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(int? kategoriId)
         {
+            if (kategoriId.HasValue)
+            {
+                return View(_urunRepository.GetirKategoriIdile((int)kategoriId));
+            }
             return View(_urunRepository.GetirHepsi());
         }
     }

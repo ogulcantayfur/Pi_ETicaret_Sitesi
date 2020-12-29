@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Pi_ETicaret_Sitesi.Contexts;
-using Pi_ETicaret_Sitesi.Entities;
+using Pi_ETicaret_Sitesi.Models;
 
 [assembly: HostingStartup(typeof(Pi_ETicaret_Sitesi.Areas.Identity.IdentityHostingStartup))]
 namespace Pi_ETicaret_Sitesi.Areas.Identity

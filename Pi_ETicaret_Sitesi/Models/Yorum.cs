@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Pi_ETicaret_Sitesi.Entities
+namespace Pi_ETicaret_Sitesi.Models
 {
-    public class Siparis
+    public class Yorum
     {
         public int id { get; set; }
-        public string adres { get; set; }
-        public int toplamTutar { get; set; }
+        public string yorum { get; set; }
     }
 }

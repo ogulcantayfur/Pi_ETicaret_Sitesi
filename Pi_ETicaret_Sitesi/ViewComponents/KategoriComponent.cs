@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Pi_ETicaret_Sitesi.Interfaces;
+using Pi_ETicaret_Sitesi.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +9,11 @@ namespace Pi_ETicaret_Sitesi.ViewComponents
 {
     public class KategoriComponent : ViewComponent
     {
-        private readonly IKategoriRepository _kategoriRepository;
-        public KategoriComponent(IKategoriRepository kategoriRepository)
+        private readonly KategoriRepository _kategoriRepository;
+        public KategoriComponent()
         {
-            _kategoriRepository = kategoriRepository;
+            KategoriRepository k1 = new KategoriRepository();
+            _kategoriRepository = k1;
         }
         public IViewComponentResult Invoke()
         {

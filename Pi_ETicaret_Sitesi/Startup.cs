@@ -10,16 +10,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Pi_ETicaret_Sitesi.Contexts;
 using Pi_ETicaret_Sitesi.Repositories;
-using Pi_ETicaret_Sitesi.Interfaces;
 using Microsoft.AspNetCore.Identity;
-using Pi_ETicaret_Sitesi.Entities;
 using Microsoft.AspNetCore.Http;
-
+using Pi_ETicaret_Sitesi.Models;
 
 namespace Pi_ETicaret_Sitesi
 
 {
-
 
     public class Startup
     {
@@ -38,12 +35,10 @@ namespace Pi_ETicaret_Sitesi
             services.AddRazorPages();
 
             services.AddAuthentication();
-            // scoped ilgili isteði yapan kiþiye tek bir nesne örneði döner.
-            services.AddScoped<IKategoriRepository, KategoriRepository>();
-            services.AddScoped<IUrunKategoriRepository, UrunKategoriRepository>();
-            services.AddScoped<IUrunRepository, UrunRepository>();
+            
             services.AddControllersWithViews();
             services.AddSession();
+            services.AddHttpContextAccessor();
 
             services.ConfigureApplicationCookie(opt =>
             {
@@ -51,7 +46,7 @@ namespace Pi_ETicaret_Sitesi
                 opt.Cookie.Name = "piEticaretGiris";
                 opt.Cookie.HttpOnly = true;
                 opt.Cookie.SameSite = SameSiteMode.Strict;
-                opt.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+                opt.ExpireTimeSpan = TimeSpan.FromMinutes(10);
             });
         }
 

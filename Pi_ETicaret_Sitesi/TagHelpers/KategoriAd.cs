@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
-using Pi_ETicaret_Sitesi.Interfaces;
+using Pi_ETicaret_Sitesi.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +10,14 @@ namespace Pi_ETicaret_Sitesi.TagHelpers
     [HtmlTargetElement("getirKategoriAd")]
     public class KategoriAd : TagHelper
     {
-        private readonly IUrunRepository _urunRepository;
+        private readonly UrunRepository _urunRepository;
         public int UrunId { get; set; }
 
 
-        public KategoriAd(IUrunRepository urunRepository)
+        public KategoriAd()
         {
-            _urunRepository = urunRepository;
+            UrunRepository u1 = new UrunRepository();
+            _urunRepository = u1;
         }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {

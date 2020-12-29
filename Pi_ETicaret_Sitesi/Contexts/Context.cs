@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Pi_ETicaret_Sitesi.Entities;
+using Pi_ETicaret_Sitesi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

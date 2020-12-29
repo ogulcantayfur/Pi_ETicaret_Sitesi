@@ -1,6 +1,5 @@
 ﻿using Pi_ETicaret_Sitesi.Contexts;
-using Pi_ETicaret_Sitesi.Entities;
-using Pi_ETicaret_Sitesi.Interfaces;
+using Pi_ETicaret_Sitesi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace Pi_ETicaret_Sitesi.Repositories
 {
-    public class UrunRepository :GenericRepository<Urun>,IUrunRepository
+    public class UrunRepository :GenericRepository<Urun>
     {
-        private readonly IUrunKategoriRepository _urunKategoriRepository;
-        public UrunRepository(IUrunKategoriRepository urunKategoriRepository)
+        private readonly UrunKategoriRepository _urunKategoriRepository;
+        public UrunRepository()
         {
-            _urunKategoriRepository = urunKategoriRepository;
+            UrunKategoriRepository uk1 = new UrunKategoriRepository();
+            _urunKategoriRepository = uk1;
         }
      
 

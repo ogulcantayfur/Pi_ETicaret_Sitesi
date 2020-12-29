@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Pi_ETicaret_Sitesi.Entities;
-using Pi_ETicaret_Sitesi.Interfaces;
 using Pi_ETicaret_Sitesi.Models;
+using Pi_ETicaret_Sitesi.Repositories;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,13 +14,16 @@ namespace Pi_ETicaret_Sitesi.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
-        private readonly IUrunRepository _urunRepository;
-        private readonly IKategoriRepository _kategoriRepository;
+        private readonly UrunRepository _urunRepository;
+        private readonly KategoriRepository _kategoriRepository;
 
-        public HomeController(IUrunRepository urunRepository, IKategoriRepository kategoriRepository)
+        public HomeController()
         {
-            _kategoriRepository=kategoriRepository;
-            _urunRepository = urunRepository;
+            UrunRepository u1 = new UrunRepository();
+            KategoriRepository k1 = new KategoriRepository();
+
+            _kategoriRepository =k1;
+            _urunRepository = u1;
         }
         public IActionResult Index()
         {

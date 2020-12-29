@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
-using Pi_ETicaret_Sitesi.Entities;
+using Pi_ETicaret_Sitesi.Models;
 
 namespace Pi_ETicaret_Sitesi.Areas.Identity.Pages.Account
 {

@@ -2,9 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Pi_ETicaret_Sitesi.Entities;
-using Pi_ETicaret_Sitesi.Interfaces;
 using Pi_ETicaret_Sitesi.Models;
+using Pi_ETicaret_Sitesi.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,20 +14,24 @@ namespace Pi_ETicaret_Sitesi.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IUrunRepository _urunRepository;
+        private readonly SepetRepository _sepetRepository;
+        private readonly UrunRepository _urunRepository;
         private readonly SignInManager<AppUser> _signInManager;
 
         //urunRepository nesne örneğini aldık
-        public HomeController(IUrunRepository urunRepository, SignInManager<AppUser> signInManager)
+        public HomeController(SignInManager<AppUser> signInManager)
         {
+            SepetRepository s1 = new SepetRepository();
+            UrunRepository u1 = new UrunRepository();
             _signInManager = signInManager;
-            _urunRepository = urunRepository;
+            _urunRepository = u1;
+            _sepetRepository = s1;
 
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int ?kategoriId)
         {
-            SetSession("kisi", "cookieDeneme");
+            ViewBag.kategoriId = kategoriId;
             return View(_urunRepository.GetirHepsi());
         }
 
@@ -47,7 +50,16 @@ namespace Pi_ETicaret_Sitesi.Controllers
         {
             
             return HttpContext.Session.GetString(key);
-        }   
+        }
+
+
+        public IActionResult SepeteEkle(int id)
+        {
+            var urun = _urunRepository.GetirIdile(id);
+            _sepetRepository.SepeteEkle(urun);
+            TempData["bildirim"] = "Ürün sepete eklendi";
+            return RedirectToAction("Index");
+        }
 
         public IActionResult Privacy()
         {
