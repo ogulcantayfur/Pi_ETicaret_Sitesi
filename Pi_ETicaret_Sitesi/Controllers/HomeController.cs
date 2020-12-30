@@ -52,6 +52,38 @@ namespace Pi_ETicaret_Sitesi.Controllers
             return HttpContext.Session.GetString(key);
         }
 
+        public IActionResult Sepet()
+        {
+
+            return View(_sepetRepository.GetirSepettekiUrunler());
+        }
+
+        public IActionResult SepettenCikar(int id)
+        {
+            var cikarilacakUrun = _urunRepository.GetirIdile(id);
+            _sepetRepository.SepettenCikar(cikarilacakUrun);
+            return RedirectToAction("Sepet");
+        }
+
+        public IActionResult SepetiSatinAl(decimal fiyat)
+        {
+            _sepetRepository.SepetiBosalt();
+            return RedirectToAction("Tesekkur", new { fiyat = fiyat });
+        }
+
+        public IActionResult SepetiBosalt()
+        {
+            _sepetRepository.SepetiBosalt();
+            return RedirectToAction("Sepet");
+        }
+
+
+        public IActionResult Tesekkur(decimal fiyat)
+        {
+            ViewBag.Fiyat = fiyat;
+            return View();
+        }
+
 
         public IActionResult SepeteEkle(int id)
         {
