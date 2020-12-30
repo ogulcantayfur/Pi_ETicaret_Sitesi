@@ -1,14 +1,12 @@
-﻿@model UrunEklemeModel
+﻿@model UrunGuncelleme
 
-<form asp-action="Ekle" asp-controller="Home" asp-area="Admin" method="post" class="w-75 mx-auto p-3" enctype="multipart/form-data">
+<form asp-action="Guncelle" asp-controller="Urun" asp-area="Admin" method="post" class="w-75 mx-auto p-3" enctype="multipart/form-data">
     <div class="form-group">
+        <input type="hidden" asp-for="@Model.id" />
         <label>Ürün Adı : </label>
         <span asp-validation-for="@Model.ad" class="text-danger"></span>
         <br />
         <input asp-for="@Model.ad" />
-
-
-
     </div>
 
     <div class="form-group">
@@ -29,7 +27,8 @@
     </div>
 
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Ekle</button>
+        <a asp-action="Index" class="btn btn-warning">Geri Dön</a>
+        <button type="submit" class="btn btn-primary">Güncelle</button>
     </div>
 
 </form>

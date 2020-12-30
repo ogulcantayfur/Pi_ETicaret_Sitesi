@@ -12,12 +12,12 @@ namespace Pi_ETicaret_Sitesi.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
-    public class HomeController : Controller
+    public class UrunController : Controller
     {
         private readonly UrunRepository _urunRepository;
         private readonly KategoriRepository _kategoriRepository;
 
-        public HomeController()
+        public UrunController()
         {
             UrunRepository u1 = new UrunRepository();
             KategoriRepository k1 = new KategoriRepository();
@@ -60,7 +60,7 @@ namespace Pi_ETicaret_Sitesi.Areas.Admin.Controllers
 
                 _urunRepository.Ekle(urun);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Urun");
             }
             return View(model);
 
@@ -104,7 +104,7 @@ namespace Pi_ETicaret_Sitesi.Areas.Admin.Controllers
 
                 _urunRepository.Guncelle(urun);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Urun");
             }
             return View(model);
         }

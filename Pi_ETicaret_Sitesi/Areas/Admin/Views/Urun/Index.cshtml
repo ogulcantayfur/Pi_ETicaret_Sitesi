@@ -1,6 +1,6 @@
 ﻿@model List<Urun>
 
-<a asp-action="Ekle" asp-controller="Home" asp-area="Admin" class="btn btn-primary 
+<a asp-action="Ekle" asp-controller="Urun" asp-area="Admin" class="btn btn-primary 
    btn-sm my-2">Ekle</a>
 <table class="table table-sm table-bordered table-hover mt-2">
 
@@ -22,9 +22,9 @@
             <td>@item.ad</td>
             <td>@item.fiyat</td>
             <td>
-                <a asp-action="Guncelle" asp-controller="Home" asp-route-id="@item.id" asp-area="Admin" class="btn btn-warning btn-sm">Güncelle</a>
-                <a asp-action="Sil" asp-controller="Home" asp-route-id="@item.id" asp-area="Admin" class="btn btn-danger btn-sm">Sil</a>
-                <a asp-action="KategoriAta" asp-controller="Home" asp-route-id="@item.id" asp-area="Admin" class="btn btn-warning btn-sm">Kategori Ata</a>
+                <a asp-action="Guncelle" asp-controller="Urun" asp-route-id="@item.id" asp-area="Admin" class="btn btn-warning btn-sm">Güncelle</a>
+                <a asp-action="Sil" asp-controller="Urun" asp-route-id="@item.id" asp-area="Admin" class="btn btn-danger btn-sm">Sil</a>
+                <a asp-action="KategoriAta" asp-controller="Urun" asp-route-id="@item.id" asp-area="Admin" class="btn btn-warning btn-sm">Kategori Ata</a>
             </td>
 
 
