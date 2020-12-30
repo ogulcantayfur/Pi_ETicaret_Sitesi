@@ -1,6 +1,6 @@
-﻿@model List<Kategori>
+﻿<link href="~/css/Kategori.css" rel="stylesheet" />
 
-<div class="list-group">
+<div class="sidebar">
     <a asp-action="Index" asp-controller="Home" class="list-group-item list-group-item-action
            @(ViewBag.KategoriId==null?"active":"")">
         Tüm Kategoriler
@@ -8,7 +8,7 @@
 
     @foreach (var kategori in Model)
     {
-        if(kategori.ad=="Matematik")
+        if (kategori.ad == "Matematik")
         {
             break;
         }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Pi_ETicaret_Sitesi.Repositories;
 using System;
 using System.Collections.Generic;
@@ -33,10 +34,11 @@ namespace Pi_ETicaret_Sitesi.Controllers
             return RedirectToAction("Sepet","Sepet");
         }
 
+        [Authorize]
         public IActionResult SepetiSatinAl(decimal fiyat)
         {
             _sepetRepository.SepetiBosalt();
-            return RedirectToAction("Tesekkur","Sepet", new { fiyat = fiyat });
+            return RedirectToAction("Odeme","Sepet", new { fiyat = fiyat });
         }
 
         public IActionResult SepetiBosalt()
@@ -44,7 +46,16 @@ namespace Pi_ETicaret_Sitesi.Controllers
             _sepetRepository.SepetiBosalt();
             return RedirectToAction("Sepet","Sepet");
         }
+
+        [Authorize]
         public IActionResult Tesekkur(decimal fiyat)
+        {
+            ViewBag.Fiyat = fiyat;
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult Odeme(decimal fiyat)
         {
             ViewBag.Fiyat = fiyat;
             return View();
