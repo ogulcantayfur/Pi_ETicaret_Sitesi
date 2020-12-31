@@ -33,6 +33,8 @@ namespace Pi_ETicaret_Sitesi.Contexts
         public DbSet<Urun> Urunler { get; set; }
         public DbSet<Kategori> Kategoriler { get; set; }
 
+        public DbSet<Yorum> Yorumlar { get; set; }
+
 
     }
 }

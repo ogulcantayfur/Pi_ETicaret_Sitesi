@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Pi_ETicaret_Sitesi.Contexts;
 using Pi_ETicaret_Sitesi.Models;
 using Pi_ETicaret_Sitesi.Repositories;
 using System;
@@ -32,9 +33,23 @@ namespace Pi_ETicaret_Sitesi.Controllers
         }
 
         public IActionResult UrunDetay(int id)
-        {  
+        {
+            SetSession("id", id.ToString());
             ViewBag.Session = GetSession("kisi");
             return View(_urunRepository.GetirIdile(id));
+        }
+
+        [HttpPost]
+        public IActionResult UrunDetay(string txtAd,string txtYorum)
+        {
+            using var context = new Context();
+            Yorum y1 = new Yorum();
+            y1.kullaniciAdi = txtAd;
+            y1.yorum = txtYorum;
+            context.Set<Yorum>().Add(y1);
+            context.SaveChanges();
+            return RedirectToAction("UrunDetay", new { id = Int32.Parse(GetSession("id")) });
+            
         }
 
         public void SetSession(string key,string value) //Session,sunucu tarafında kaynakları tüketir.
@@ -46,8 +61,11 @@ namespace Pi_ETicaret_Sitesi.Controllers
             
             return HttpContext.Session.GetString(key);
         }
-
         
+       
+
+
+
 
         public IActionResult Privacy()
         {

@@ -8,6 +8,7 @@ namespace Pi_ETicaret_Sitesi.Models
     public class Yorum
     {
         public int id { get; set; }
+        public string kullaniciAdi { get; set; }
         public string yorum { get; set; }
     }
 }
