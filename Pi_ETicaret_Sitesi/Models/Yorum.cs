@@ -10,5 +10,7 @@ namespace Pi_ETicaret_Sitesi.Models
         public int id { get; set; }
         public string kullaniciAdi { get; set; }
         public string yorum { get; set; }
+        public int urunId { get; set; }
+        public DateTime yorumTarihi { get; set; }
     }
 }

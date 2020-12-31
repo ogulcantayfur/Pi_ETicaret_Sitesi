@@ -14,6 +14,7 @@ namespace Pi_ETicaret_Sitesi.Models
         [MaxLength(300)]
         public string resim { get; set; }
         public decimal fiyat { get; set; }
+        
 
         public List<UrunKategori> UrunKategoriler { get; set; }
     }

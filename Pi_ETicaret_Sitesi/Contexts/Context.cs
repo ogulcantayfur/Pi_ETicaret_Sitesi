@@ -26,6 +26,7 @@ namespace Pi_ETicaret_Sitesi.Contexts
                 I.kategoriId,
                 I.urunId
             }).IsUnique(); //veri tekrarını önledik.
+          
             base.OnModelCreating(modelBuilder);
 
         }
