@@ -1,4 +1,5 @@
-﻿<link href="~/css/Kategori.css" rel="stylesheet" />
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+<link href="~/css/Kategori.css" rel="stylesheet" />
 
 <div class="sidebar">
     <a asp-action="Index" asp-controller="Home" class="list-group-item list-group-item-action
@@ -8,14 +9,15 @@
 
     @foreach (var kategori in Model)
     {
+        
         if (kategori.ad == "Matematik")
         {
             break;
         }
-        <a asp-action="Index" asp-controller="Home" asp-route-kategoriId="@kategori.id" class="list-group-item list-group-item-action
+<a asp-action="Index" asp-controller="Home" asp-route-kategoriId="@kategori.id" class="list-group-item list-group-item-action
            @(ViewBag.KategoriId?.ToString()==kategori.id.ToString()?"active":"")">
-            @kategori.ad
-        </a>
+    @localizer[@kategori.ad]
+</a>
 
     }
 

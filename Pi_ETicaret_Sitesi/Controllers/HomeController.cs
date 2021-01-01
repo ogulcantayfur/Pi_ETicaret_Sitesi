@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Pi_ETicaret_Sitesi.Contexts;
@@ -20,13 +21,13 @@ namespace Pi_ETicaret_Sitesi.Controllers
 
         //urunRepository nesne örneğini aldık
         public HomeController(SignInManager<AppUser> signInManager)
-        { 
+        {
             UrunRepository u1 = new UrunRepository();
             _signInManager = signInManager;
             _urunRepository = u1;
         }
 
-        public IActionResult Index(int ?kategoriId)
+        public IActionResult Index(int? kategoriId)
         {
             ViewBag.kategoriId = kategoriId;
             return View(_urunRepository.GetirHepsi());
@@ -40,9 +41,9 @@ namespace Pi_ETicaret_Sitesi.Controllers
         }
 
         [HttpPost]
-        public IActionResult UrunDetay(string txtAd,string txtYorum)
+        public IActionResult UrunDetay(string txtAd, string txtYorum)
         {
-            
+
             using var context = new Context();
             Yorum y1 = new Yorum();
             y1.kullaniciAdi = txtAd;
@@ -51,22 +52,29 @@ namespace Pi_ETicaret_Sitesi.Controllers
             y1.yorumTarihi = DateTime.Now;
             context.Set<Yorum>().Add(y1);
             context.SaveChanges();
-            return RedirectToAction("UrunDetay", new { id = Int32.Parse(GetSession("id")) });  
+            return RedirectToAction("UrunDetay", new { id = Int32.Parse(GetSession("id")) });
         }
 
-        public void SetSession(string key,string value) //Session,sunucu tarafında kaynakları tüketir.
+        public void SetSession(string key, string value) //Session,sunucu tarafında kaynakları tüketir.
         {
             HttpContext.Session.SetString(key, value);
         }
         public string GetSession(string key)
         {
-            
+
             return HttpContext.Session.GetString(key);
         }
-        
-       
 
 
+
+        [HttpPost]
+        public IActionResult DilYonetimi(string dil,string returnUrl)
+        {
+            Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName,CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(dil)),
+                new CookieOptions {Expires=DateTimeOffset.Now.AddDays(30)});
+            return LocalRedirect(returnUrl);
+           // return RedirectToAction("Index");
+        }
 
 
         public IActionResult Privacy()

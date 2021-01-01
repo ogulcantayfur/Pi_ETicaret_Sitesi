@@ -13,6 +13,8 @@ using Pi_ETicaret_Sitesi.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using Pi_ETicaret_Sitesi.Models;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace Pi_ETicaret_Sitesi
 
@@ -27,15 +29,32 @@ namespace Pi_ETicaret_Sitesi
 
         public IConfiguration Configuration { get; }
 
-        
+
 
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddLocalization(opt => { opt.ResourcesPath = "Resources"; });
+            services.AddMvc().AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
+
+
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new[]
+                {
+            new CultureInfo("tr"),
+            new CultureInfo("en"),
+
+        };
+                options.DefaultRequestCulture = new RequestCulture(culture: "tr", uiCulture: "tr");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+
             services.AddRazorPages();
 
             services.AddAuthentication();
-            
+
             services.AddControllersWithViews();
             services.AddSession();
             services.AddHttpContextAccessor();
@@ -70,7 +89,7 @@ namespace Pi_ETicaret_Sitesi
             {
                 //create the roles and seed them to the database
                 roleResult2 = await RoleManager.CreateAsync(new IdentityRole("User"));
-            }   
+            }
 
             if (!dbContext.Users.Any(u => u.UserName == "ogulcan"))
             {
@@ -84,7 +103,7 @@ namespace Pi_ETicaret_Sitesi
         }
 
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, 
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
             UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
@@ -93,10 +112,10 @@ namespace Pi_ETicaret_Sitesi
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");   
+                app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-            
+
             app.UseRouting();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -105,8 +124,11 @@ namespace Pi_ETicaret_Sitesi
             app.UseAuthentication();
             app.UseAuthorization();
 
-            
+            var desteklenenDiller = new[] { "tr", "en" };
+            var localizationAyarlari = new RequestLocalizationOptions().SetDefaultCulture(desteklenenDiller[0])
+                .AddSupportedCultures(desteklenenDiller).AddSupportedUICultures(desteklenenDiller);
 
+            app.UseRequestLocalization(localizationAyarlari);
             CreateUserRoles(serviceProvider).Wait();
             app.UseEndpoints(endpoints =>
             {

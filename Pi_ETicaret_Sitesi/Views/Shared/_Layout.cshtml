@@ -22,11 +22,16 @@
                 <li class="nav-item active">
                     <a class="nav-link" asp-action="Index" asp-controller="Home" asp-area="">Anasayfa <span class="sr-only">(current)</span></a>
                 </li>
-           
+
                 <li class="nav-item active">
                     <a class="nav-link" asp-action="Sepet" asp-controller="Sepet" asp-area="">Sepetim <span class="sr-only">(current)</span></a>
                 </li>
 
+                <li class="nav-item active">
+                    <partial name="_Dil" />
+                </li>
+
+                
                 <li class="nav-item active">
                     <a asp-action="Index" asp-controller="Urun" asp-area="Admin" class="nav-link">Admin Girişi</a>
                 </li>
