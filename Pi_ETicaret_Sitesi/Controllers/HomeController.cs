@@ -68,14 +68,11 @@ namespace Pi_ETicaret_Sitesi.Controllers
 
 
         [HttpPost]
-        public IActionResult DilYonetimi(string dil,string returnUrl)
+        public IActionResult CultureManagement(string culture, string returnUrl)
         {
-            Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName,CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(dil)),
-                new CookieOptions {Expires=DateTimeOffset.Now.AddDays(30)});
+            Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName, CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)), new CookieOptions { Expires = DateTimeOffset.Now.AddDays(30) });
             return LocalRedirect(returnUrl);
-           // return RedirectToAction("Index");
         }
-
 
         public IActionResult Privacy()
         {

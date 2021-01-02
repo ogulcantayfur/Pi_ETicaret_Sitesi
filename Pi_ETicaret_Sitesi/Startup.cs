@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Http;
 using Pi_ETicaret_Sitesi.Models;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
 
 namespace Pi_ETicaret_Sitesi
 
@@ -35,20 +36,19 @@ namespace Pi_ETicaret_Sitesi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLocalization(opt => { opt.ResourcesPath = "Resources"; });
-            services.AddMvc().AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
+            services.AddMvc().AddMvcLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
 
 
-            services.Configure<RequestLocalizationOptions>(options =>
+            services.Configure<RequestLocalizationOptions>(opt =>
             {
-                var supportedCultures = new[]
+                var supportedCultures = new List<CultureInfo>
                 {
-            new CultureInfo("tr"),
-            new CultureInfo("en"),
-
-        };
-                options.DefaultRequestCulture = new RequestCulture(culture: "tr", uiCulture: "tr");
-                options.SupportedCultures = supportedCultures;
-                options.SupportedUICultures = supportedCultures;
+                    new CultureInfo("tr"),
+                    new CultureInfo("en")
+                };
+                opt.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("tr");
+                opt.SupportedCultures = supportedCultures;
+                opt.SupportedUICultures = supportedCultures;
             });
 
             services.AddRazorPages();
@@ -124,20 +124,25 @@ namespace Pi_ETicaret_Sitesi
             app.UseAuthentication();
             app.UseAuthorization();
 
-            var desteklenenDiller = new[] { "tr", "en" };
-            var localizationAyarlari = new RequestLocalizationOptions().SetDefaultCulture(desteklenenDiller[0])
-                .AddSupportedCultures(desteklenenDiller).AddSupportedUICultures(desteklenenDiller);
-
-            app.UseRequestLocalization(localizationAyarlari);
+            app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
             CreateUserRoles(serviceProvider).Wait();
             app.UseEndpoints(endpoints =>
             {
+                
                 endpoints.MapControllerRoute(name: "areas", pattern: "{area}/{controller=Home}/{action=Index}/{id?}");
+
+                
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                
+
+
                 endpoints.MapRazorPages();
             });
+
+            
         }
 
 

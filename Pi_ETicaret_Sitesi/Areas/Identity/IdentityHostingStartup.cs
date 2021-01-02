@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -15,9 +16,11 @@ namespace Pi_ETicaret_Sitesi.Areas.Identity
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) => {
-                services.AddDbContext<Context>().AddDefaultIdentity<AppUser>(options => {
-                   options.SignIn.RequireConfirmedAccount = false;
+            builder.ConfigureServices((context, services) =>
+            {
+                services.AddDbContext<Context>().AddDefaultIdentity<AppUser>(options =>
+                {
+                    options.SignIn.RequireConfirmedAccount = false;
                     options.Password.RequireLowercase = false;
                     options.Password.RequireUppercase = false;
                     options.Password.RequireDigit = false;
@@ -27,5 +30,10 @@ namespace Pi_ETicaret_Sitesi.Areas.Identity
                     .AddRoles<IdentityRole>().AddEntityFrameworkStores<Context>();
             });
         }
+        
+
+        
+
     }
-}
+    
+    }
