@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Başarılı" xml:space="preserve">
-    <value>Başarılıı</value>
+    <value>Başarılı</value>
+  </data>
+  <data name="Ürün sepete eklendi" xml:space="preserve">
+    <value>Ürün sepete eklendi</value>
   </data>
 </root>

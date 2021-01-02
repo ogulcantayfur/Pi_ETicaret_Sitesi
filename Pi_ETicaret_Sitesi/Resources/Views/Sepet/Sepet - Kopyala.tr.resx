@@ -117,22 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Geri Dön" xml:space="preserve">
-    <value>Back</value>
+  <data name="Adres Bilgileri" xml:space="preserve">
+    <value>Adres Bilgileri</value>
   </data>
-  <data name="Sepete ekle" xml:space="preserve">
-    <value>Add to my cart</value>
+  <data name="Almanya" xml:space="preserve">
+    <value>Almanya</value>
   </data>
-  <data name="Yorum Yap" xml:space="preserve">
-    <value>Comment</value>
+  <data name="Alışverişe Devam Et" xml:space="preserve">
+    <value>Alışverişe Devam Et</value>
   </data>
-  <data name="Yorumlar" xml:space="preserve">
-    <value>Comments</value>
+  <data name="Berlin" xml:space="preserve">
+    <value>Berlin</value>
   </data>
-  <data name="Öğrencilerimizin derslerine yardımcı kitaplar." xml:space="preserve">
-    <value>Books that help our students with their lessons.</value>
+  <data name="Hediye Kodu" xml:space="preserve">
+    <value>Hediye Kodu</value>
   </data>
-  <data name="Ürün Fiyatı" xml:space="preserve">
-    <value>Price</value>
+  <data name="Hediye Çeki Uygula" xml:space="preserve">
+    <value>Hediye Çeki Uygula</value>
+  </data>
+  <data name="Not" xml:space="preserve">
+    <value>Not</value>
+  </data>
+  <data name="Opsiyonel yorumlar" xml:space="preserve">
+    <value>Opsiyonel yorumlar</value>
+  </data>
+  <data name="Satın Al" xml:space="preserve">
+    <value>Satın Al</value>
+  </data>
+  <data name="Sepeti Boşalt" xml:space="preserve">
+    <value>Sepeti Boşalt</value>
+  </data>
+  <data name="Sepetiniz boş" xml:space="preserve">
+    <value>Sepetiniz boş</value>
+  </data>
+  <data name="Sepetinizdeki toplam tutar" xml:space="preserve">
+    <value>Sepetinizdeki toplam tutar</value>
+  </data>
+  <data name="Sepetteki Ürünler" xml:space="preserve">
+    <value>Sepetteki Ürünler</value>
+  </data>
+  <data name="Türkiye" xml:space="preserve">
+    <value>Türkiye</value>
+  </data>
+  <data name="Ülke Seç" xml:space="preserve">
+    <value>Ülke Seç</value>
+  </data>
+  <data name="İstanbul" xml:space="preserve">
+    <value>İstanbul</value>
+  </data>
+  <data name="Şehir Seç" xml:space="preserve">
+    <value>Şehir Seç</value>
   </data>
 </root>

@@ -123,6 +123,9 @@
   <data name="Sepete ekle" xml:space="preserve">
     <value>Sepete ekle</value>
   </data>
+  <data name="Yorum Yap" xml:space="preserve">
+    <value>Yorum Yap</value>
+  </data>
   <data name="Yorumlar" xml:space="preserve">
     <value>Yorumlar</value>
   </data>

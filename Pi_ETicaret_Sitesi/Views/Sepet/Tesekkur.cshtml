@@ -1,9 +1,12 @@
-﻿<div class="alert alert-success" role="alert">
-    <h4 class="alert-heading">İşlem Başarılı!</h4>
-    <strong>@ViewBag.fiyat TL</strong> tutarındaki satın alma işleminiz başarı gerçekleşti. Bizi tercih ettiğiniz için teşekkür ederiz.
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">@localizer["İşlem Başarılı!"]</h4>
+    @localizer["Satın alma işleminiz başarı gerçekleşti. Bizi tercih ettiğiniz için teşekkür ederiz."]
+   
 
     <p>
-        <a asp-action="Index" asp-controller="Home" class="btn btn-success">Geri Dön</a>
+        <a asp-action="Index" asp-controller="Home" class="btn btn-success">@localizer["Geri Dön"]</a>
     </p>
     <hr>
 

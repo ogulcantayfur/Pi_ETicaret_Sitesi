@@ -120,19 +120,10 @@
   <data name="Geri Dön" xml:space="preserve">
     <value>Back</value>
   </data>
-  <data name="Sepete ekle" xml:space="preserve">
-    <value>Add to my cart</value>
+  <data name="Satın alma işleminiz başarı gerçekleşti. Bizi tercih ettiğiniz için teşekkür ederiz." xml:space="preserve">
+    <value>Your purchase has been successful. Thank you for choosing us.</value>
   </data>
-  <data name="Yorum Yap" xml:space="preserve">
-    <value>Comment</value>
-  </data>
-  <data name="Yorumlar" xml:space="preserve">
-    <value>Comments</value>
-  </data>
-  <data name="Öğrencilerimizin derslerine yardımcı kitaplar." xml:space="preserve">
-    <value>Books that help our students with their lessons.</value>
-  </data>
-  <data name="Ürün Fiyatı" xml:space="preserve">
-    <value>Price</value>
+  <data name="İşlem Başarılı!" xml:space="preserve">
+    <value>Transaction Successful!</value>
   </data>
 </root>

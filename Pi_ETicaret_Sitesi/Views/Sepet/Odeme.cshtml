@@ -1,4 +1,5 @@
-﻿
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="~/css/CreditCard.css" rel="stylesheet" />
 <div class="container">
@@ -72,7 +73,7 @@
 
                 <div class="ibox">
                     <div class="ibox-title">
-                        Ödeme Metodu
+                        @localizer["Ödeme Metodu"]
                     </div>
                     <div class="ibox-content">
 
@@ -91,11 +92,11 @@
 
                                         <div class="row">
                                             <div class="col-md-10">
-                                                <h2>Özet</h2>
-                                                <strong>Toplam Tutar:</strong>: <span class="text-navy">@ViewBag.fiyat TL</span>
-                                                <a class="btn btn-success">
+                                                <h2>@localizer["Özet"]</h2>
+                                                <strong>@localizer["Toplam Tutar"]:</strong>: <span class="text-navy">@ViewBag.fiyat TL</span>
+                                                <a class="btn btn-success" asp-action="Tesekkur" asp-controller="Sepet">
                                                     <i class="fa fa-cc-paypal">
-                                                        Paypal ile Satın Al
+                                                        Paypal
                                                     </i>
                                                 </a>
                                             </div>
@@ -119,11 +120,11 @@
 
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <h2>Özet</h2>
+                                                <h2>@localizer["Özet"]</h2>
 
-                                                <strong>Toplam Tutar:</strong>: <span class="text-navy">@ViewBag.fiyat TL</span>
+                                                <strong>@localizer["Toplam Tutar"]:</strong>: <span class="text-navy">@ViewBag.fiyat TL</span>
 
-                                               
+
                                             </div>
                                             <div class="col-md-8">
 
@@ -131,9 +132,9 @@
                                                     <div class="row">
                                                         <div class="col-xs-12">
                                                             <div class="form-group">
-                                                                <label>Kart Numarası</label>
+                                                                <label>@localizer["Kart Numarası"]</label>
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" name="Number" placeholder="Kart Numarası" required="">
+                                                                    <input type="text" class="form-control" name="Number" placeholder=@localizer["Kart Numarası"] required="">
                                                                     <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
                                                                 </div>
                                                             </div>
@@ -142,7 +143,7 @@
                                                     <div class="row">
                                                         <div class="col-xs-7 col-md-7">
                                                             <div class="form-group">
-                                                                <label>Son Kullanma Tarihi</label>
+                                                                <label>@localizer["Son Kullanma Tarihi"]</label>
                                                                 <input type="text" class="form-control" name="Expiry" placeholder="MM / YY" required="">
                                                             </div>
                                                         </div>
@@ -156,14 +157,14 @@
                                                     <div class="row">
                                                         <div class="col-xs-12">
                                                             <div class="form-group">
-                                                                <label>Kart İsmi</label>
+                                                                <label>@localizer["Kart İsmi"]</label>
                                                                 <input type="text" class="form-control" name="nameCard" placeholder="İSİM VE SOYİSİM">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-xs-12">
-                                                            <button class="btn btn-primary" type="submit">Öde</button>
+                                                            <a class="btn btn-primary" type="submit" asp-action="Tesekkur" asp-controller="Sepet">@localizer["Öde"] </a>
                                                         </div>
                                                     </div>
                                                 </form>
