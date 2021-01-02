@@ -1,51 +1,50 @@
 ﻿@page
 @model LoginModel
 
-@{
-    ViewData["Title"] = "Giriş Yap";
-}
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 
-<h1>@ViewData["Title"]</h1>
+
+<h1>@localizer["Giriş Yap"]</h1>
 <div class="row">
     <div class="col-md-4">
         <section>
             <form id="account" method="post">
-                <h4>Giriş için hesap bilgilerinizi giriniz.</h4>
+                <h4>@localizer["Giriş için hesap bilgilerinizi giriniz."]</h4>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Input.UserName"></label>
+                    <label>@localizer["Kullanıcı Adı"]</label>
                     <input asp-for="Input.UserName" class="form-control" />
                     <span asp-validation-for="Input.UserName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.Password"></label>
+                    <label>@localizer["Şifre"]</label>
                     <input asp-for="Input.Password" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <div class="checkbox">
-                        <label asp-for="Input.RememberMe">
+                        <label>
                             <input asp-for="Input.RememberMe" />
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            @localizer["Beni Hatırla"]
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+                    <button type="submit" class="btn btn-primary">@localizer["Giriş Yap"]</button>
                 </div>
                 <div class="form-group">
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Şifremi unuttum.</a>
+                        <a id="forgot-password" asp-page="./ForgotPassword">@localizer["Şifremi unuttum"]</a>
                     </p>
                     <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Yeni Kayıt Ol</a>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">@localizer["Yeni Kayıt Ol"]</a>
                     </p>
                 </div>
             </form>
         </section>
     </div>
-    
+
 </div>
 
 @section Scripts {

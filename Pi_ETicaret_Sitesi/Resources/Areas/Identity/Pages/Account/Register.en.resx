@@ -117,31 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="1. Sınıf" xml:space="preserve">
-    <value>1st Class</value>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
   </data>
-  <data name="2. Sınıf" xml:space="preserve">
-    <value>2. Class</value>
+  <data name="Kullanıcı Adı" xml:space="preserve">
+    <value>Username</value>
   </data>
-  <data name="3. Sınıf" xml:space="preserve">
-    <value>3rd Class</value>
+  <data name="Yeni Hesap Oluştur" xml:space="preserve">
+    <value>Create New Account</value>
   </data>
-  <data name="4. Sınıf" xml:space="preserve">
-    <value>4th grade</value>
+  <data name="Üye Ol" xml:space="preserve">
+    <value>Register</value>
   </data>
-  <data name="5. Sınıf" xml:space="preserve">
-    <value>5th grade</value>
+  <data name="Şifre" xml:space="preserve">
+    <value>Password</value>
   </data>
-  <data name="6. Sınıf" xml:space="preserve">
-    <value>6th grade</value>
-  </data>
-  <data name="7. Sınıf" xml:space="preserve">
-    <value>7th grade</value>
-  </data>
-  <data name="8. Sınıf" xml:space="preserve">
-    <value>8th grade</value>
-  </data>
-  <data name="9. Sınıf" xml:space="preserve">
-    <value>9th grade</value>
+  <data name="Şifreni Onayla" xml:space="preserve">
+    <value>Confirm Password</value>
   </data>
 </root>

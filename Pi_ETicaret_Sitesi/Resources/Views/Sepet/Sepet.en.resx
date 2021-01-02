@@ -117,31 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="1. Sınıf" xml:space="preserve">
-    <value>1st Class</value>
+  <data name="Adres Bilgileri" xml:space="preserve">
+    <value>Address Information</value>
   </data>
-  <data name="2. Sınıf" xml:space="preserve">
-    <value>2. Class</value>
+  <data name="Almanya" xml:space="preserve">
+    <value>Germany</value>
   </data>
-  <data name="3. Sınıf" xml:space="preserve">
-    <value>3rd Class</value>
+  <data name="Alışverişe Devam Et" xml:space="preserve">
+    <value>Keep Shopping</value>
   </data>
-  <data name="4. Sınıf" xml:space="preserve">
-    <value>4th grade</value>
+  <data name="Berlin" xml:space="preserve">
+    <value>Berlin</value>
   </data>
-  <data name="5. Sınıf" xml:space="preserve">
-    <value>5th grade</value>
+  <data name="Hediye Kodu" xml:space="preserve">
+    <value>Gift Code</value>
   </data>
-  <data name="6. Sınıf" xml:space="preserve">
-    <value>6th grade</value>
+  <data name="Hediye Çeki Uygula" xml:space="preserve">
+    <value>Apply Gift Voucher</value>
   </data>
-  <data name="7. Sınıf" xml:space="preserve">
-    <value>7th grade</value>
+  <data name="Not" xml:space="preserve">
+    <value>Note</value>
   </data>
-  <data name="8. Sınıf" xml:space="preserve">
-    <value>8th grade</value>
+  <data name="Opsiyonel yorumlar" xml:space="preserve">
+    <value>Optional comments</value>
   </data>
-  <data name="9. Sınıf" xml:space="preserve">
-    <value>9th grade</value>
+  <data name="Satın Al" xml:space="preserve">
+    <value>Buy</value>
+  </data>
+  <data name="Sepeti Boşalt" xml:space="preserve">
+    <value>Empty Cart</value>
+  </data>
+  <data name="Sepetiniz boş" xml:space="preserve">
+    <value>Your cart is empty</value>
+  </data>
+  <data name="Sepetinizdeki toplam tutar" xml:space="preserve">
+    <value>Total amount in your cart</value>
+  </data>
+  <data name="Sepetteki Ürünler" xml:space="preserve">
+    <value>Products In The Cart</value>
+  </data>
+  <data name="Türkiye" xml:space="preserve">
+    <value>Turkey</value>
+  </data>
+  <data name="Ülke Seç" xml:space="preserve">
+    <value>Select Country</value>
+  </data>
+  <data name="İstanbul" xml:space="preserve">
+    <value>İstanbul</value>
+  </data>
+  <data name="Şehir Seç" xml:space="preserve">
+    <value>Select City</value>
   </data>
 </root>

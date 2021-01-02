@@ -1,33 +1,33 @@
 ﻿@model List<Urun>
-    <link href="~/css/Cards.css" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <div class="container">
-        <div class="row">
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+<link href="~/css/Cards.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
 
-            @foreach (var item in Model)
-            {
-                <!-- Product-->
-                <div class="col-lg-4 col-sm-6 mb-30">
-                    <div class="product-card mx-auto mb-5">
-                        <div class="product-head"><span class="badge badge-danger">En İyi Fiyat</span></div>
-                        <a class="product-thumb" href="#"><img src="/img/@item.resim" alt="@item.ad"></a>
-                        <div class="product-card-body">
-                            <a class="product-meta" href="#">Computers, laptops</a>
-                            <h5 class="product-title"><a href="#">@item.ad</a></h5><span class="product-price text-muted">@item.ad</span>
-                        </div>
-                        <div class="product-buttons-wrap">
-                            <div class="product-buttons">
-                                <div class="product-button"><a asp-action="SepeteEkle" asp-controller="Sepet" asp-route-id="@item.id"><i class="fa fa-shopping-cart"></i></a></div>
-                                <div class="product-button"><a asp-action="UrunDetay" asp-controller="Home" asp-route-id="@item.id"><i class="fa fa-arrow-right"></i></a></div>
-                            </div>
+        @foreach (var item in Model)
+        {
+            <!-- Product-->
+            <div class="col-lg-4 col-sm-6 mb-30">
+                <div class="product-card mx-auto mb-5">
+                    <div class="product-head"><span class="badge badge-danger">@localizer["En İyi Fiyat"]</span></div>
+                    <a class="product-thumb" href="#"><img src="/img/@item.resim" alt="@item.ad"></a>
+                    <div class="product-card-body">
+                        <h5 class="product-title"><a href="#">@item.ad</a></h5><span class="product-price text-muted">@item.ad</span>
+                    </div>
+                    <div class="product-buttons-wrap">
+                        <div class="product-buttons">
+                            <div class="product-button"><a asp-action="SepeteEkle" asp-controller="Sepet" asp-route-id="@item.id"><i class="fa fa-shopping-cart"></i></a></div>
+                            <div class="product-button"><a asp-action="UrunDetay" asp-controller="Home" asp-route-id="@item.id"><i class="fa fa-arrow-right"></i></a></div>
                         </div>
                     </div>
                 </div>
-                <!-- Product-->
-            }
+            </div>
+            <!-- Product-->
+        }
 
 
 
-        </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.10.0/feather.js"></script>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.10.0/feather.js"></script>

@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="1. Sınıf" xml:space="preserve">
-    <value>1st Class</value>
+    <value>1. Sınıf</value>
   </data>
   <data name="2. Sınıf" xml:space="preserve">
-    <value>2. Class</value>
+    <value>2. Sınıf</value>
   </data>
   <data name="3. Sınıf" xml:space="preserve">
-    <value>3rd Class</value>
+    <value>3. Sınıf</value>
   </data>
   <data name="4. Sınıf" xml:space="preserve">
-    <value>4th grade</value>
+    <value>4. Sınıf</value>
   </data>
   <data name="5. Sınıf" xml:space="preserve">
-    <value>5th grade</value>
+    <value>5. Sınıf</value>
   </data>
   <data name="6. Sınıf" xml:space="preserve">
-    <value>6th grade</value>
+    <value>6. Sınıf</value>
   </data>
   <data name="7. Sınıf" xml:space="preserve">
-    <value>7th grade</value>
+    <value>7. Sınıf</value>
   </data>
   <data name="8. Sınıf" xml:space="preserve">
-    <value>8th grade</value>
+    <value>8. Sınıf</value>
   </data>
   <data name="9. Sınıf" xml:space="preserve">
-    <value>9th grade</value>
+    <value>9. Sınıf</value>
   </data>
 </root>

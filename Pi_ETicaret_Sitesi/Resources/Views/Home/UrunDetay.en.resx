@@ -117,31 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="1. Sınıf" xml:space="preserve">
-    <value>1st Class</value>
+  <data name="Geri Dön" xml:space="preserve">
+    <value>Back</value>
   </data>
-  <data name="2. Sınıf" xml:space="preserve">
-    <value>2. Class</value>
+  <data name="Sepete ekle" xml:space="preserve">
+    <value>Add to my cart</value>
   </data>
-  <data name="3. Sınıf" xml:space="preserve">
-    <value>3rd Class</value>
+  <data name="Yorumlar" xml:space="preserve">
+    <value>Comments</value>
   </data>
-  <data name="4. Sınıf" xml:space="preserve">
-    <value>4th grade</value>
+  <data name="Öğrencilerimizin derslerine yardımcı kitaplar." xml:space="preserve">
+    <value>Books that help our students with their lessons.</value>
   </data>
-  <data name="5. Sınıf" xml:space="preserve">
-    <value>5th grade</value>
-  </data>
-  <data name="6. Sınıf" xml:space="preserve">
-    <value>6th grade</value>
-  </data>
-  <data name="7. Sınıf" xml:space="preserve">
-    <value>7th grade</value>
-  </data>
-  <data name="8. Sınıf" xml:space="preserve">
-    <value>8th grade</value>
-  </data>
-  <data name="9. Sınıf" xml:space="preserve">
-    <value>9th grade</value>
+  <data name="Ürün Fiyatı" xml:space="preserve">
+    <value>Price</value>
   </data>
 </root>

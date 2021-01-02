@@ -24,8 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Views\Sepet\" />
-    <Folder Include="Resources\Views\Shared\Components\UrunComponent\" />
+    <Folder Include="Resources\Areas\Admin\Views\" />
     <Folder Include="Resources\Views\Shared\Components\YorumComponent\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>

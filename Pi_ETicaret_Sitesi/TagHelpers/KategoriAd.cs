@@ -26,7 +26,7 @@ namespace Pi_ETicaret_Sitesi.TagHelpers
 
             foreach (var item in gelenKategoriler)
             {
-                data += item + " ";
+                data += item + " , ";
             }
 
             output.Content.SetContent(data);

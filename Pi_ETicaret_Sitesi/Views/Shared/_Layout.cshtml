@@ -1,12 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anasayfa</title>
+    <title>@localizer["Anasayfa"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
- 
+
 
 </head>
 <body>
@@ -20,20 +22,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" asp-action="Index" asp-controller="Home" asp-area="">Anasayfa <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" asp-action="Index" asp-controller="Home" asp-area="">@localizer["Anasayfa"]<span class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link" asp-action="Sepet" asp-controller="Sepet" asp-area="">Sepetim <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" asp-action="Sepet" asp-controller="Sepet" asp-area="">@localizer["Sepetim"]<span class="sr-only">(current)</span></a>
                 </li>
 
                 <li class="nav-item active">
                     <partial name="_Dil" />
                 </li>
 
-                
+
                 <li class="nav-item active">
-                    <a asp-action="Index" asp-controller="Urun" asp-area="Admin" class="nav-link">Admin Girişi</a>
+                    <a asp-action="Index" asp-controller="Urun" asp-area="Admin" class="nav-link">@localizer["Admin Girişi"]</a>
                 </li>
 
                 <partial name="_LoginPartial.cshtml" />
@@ -41,12 +43,14 @@
 
 
             </ul>
-            
+
         </div>
     </nav>
 
 
     @* Navbar *@
+
+
 
     <div class="mt-2">
         <div class="container-fluid">
@@ -54,6 +58,54 @@
         </div>
 
     </div>
+    <link href="~/css/Footer.css" rel="stylesheet" />
+    <!-- Footer -->
+    <footer>
+        <section id="footer">
+            <div class="container">
+                <div class="row text-center text-xs-center text-sm-left text-md-left">
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        
+                        
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h5>@localizer["Hızlı Erişim"]</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li><a asp-action="Index" asp-controller="Home" asp-area="" ><i class="fa fa-angle-double-right"></i>@localizer["Anasayfa"]</a></li>
+                            <li><a asp-action="Sepet" asp-controller="Sepet" asp-area=""><i class="fa fa-angle-double-right"></i>@localizer["Sepetim"]</a></li>
+                            <li><a asp-action="Index" asp-controller="Urun" asp-area="Admin"><i class="fa fa-angle-double-right"></i>@localizer["Admin Girişi"]</a></li>
+                            
+                            
+
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                       
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                        <ul class="list-unstyled list-inline social text-center">
+                            <li class="list-inline-item"><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.google.com"><i class="fa fa-google-plus"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.gmail.com" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                        </ul>
+                    </div>
+                    </hr>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center"> 
+                        <p class="text-green ml-2">&copy @localizer["Tüm haklarımız saklıdır"].</p>
+                    </div>
+                    </hr>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <!-- ./Footer -->
     <script src="~/jquery/jquery.min.js"></script>
     <script src="~/twitter-bootstrap/js/bootstrap.min.js"></script>
     @RenderSection("Scripts", false)

@@ -1,5 +1,6 @@
 ﻿@model Urun
 
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 <link href="~/css/UrunDetaylari.css" rel="stylesheet" />
 
 
@@ -17,11 +18,12 @@
                 </div>
                 <div class="details col-md-6">
                     <h3 class="product-title">@Model.ad</h3>
-                    <p>Öğrencilerimizin derslerine yardımcı kitaplar.</p>
-                    <h4 class="price">Ürün Fiyatı: <span>@Model.fiyat TL</span></h4>
+                    <p>@localizer["Öğrencilerimizin derslerine yardımcı kitaplar."]</p>
+                    
+                    <h4 class="price">@localizer["Ürün Fiyatı"]: <span>@Model.fiyat TL</span></h4>
                     <div class="action">
-                        <a asp-action="Index" asp-controller="Home" asp-route-id="@Model.id" class="geri-don btn btn-default" type="button">Geri Dön</a>
-                        <a asp-action="SepeteEkle" asp-controller="Sepet" asp-route-id="@Model.id" class="add-to-cart btn btn-default" type="button">Sepete ekle</a>
+                        <a asp-action="Index" asp-controller="Home" asp-route-id="@Model.id" class="geri-don btn btn-default" type="button">@localizer["Geri Dön"]</a>
+                        <a asp-action="SepeteEkle" asp-controller="Sepet" asp-route-id="@Model.id" class="add-to-cart btn btn-default" type="button">@localizer["Sepete ekle"]</a>
                     </div>
                 </div>
             </div>
@@ -33,7 +35,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
     <div class="be-comment-block">
-        <h1 class="comments-title">Yorumlar </h1>
+        <h1 class="comments-title">@localizer["Yorumlar"] </h1>
         @await Component.InvokeAsync("YorumComponent", new { urunId = Model.id })
 
         @using (Html.BeginForm("UrunDetay", "Home", FormMethod.Post))

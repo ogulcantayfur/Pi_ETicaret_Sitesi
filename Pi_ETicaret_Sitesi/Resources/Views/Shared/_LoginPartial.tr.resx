@@ -117,31 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="1. Sınıf" xml:space="preserve">
-    <value>1st Class</value>
+  <data name="Giriş Yap" xml:space="preserve">
+    <value>Giriş Yap</value>
   </data>
-  <data name="2. Sınıf" xml:space="preserve">
-    <value>2. Class</value>
+  <data name="Hoşgeldiniz" xml:space="preserve">
+    <value>Hoşgeldiniz</value>
   </data>
-  <data name="3. Sınıf" xml:space="preserve">
-    <value>3rd Class</value>
+  <data name="Çıkış Yap" xml:space="preserve">
+    <value>Çıkış Yap</value>
   </data>
-  <data name="4. Sınıf" xml:space="preserve">
-    <value>4th grade</value>
-  </data>
-  <data name="5. Sınıf" xml:space="preserve">
-    <value>5th grade</value>
-  </data>
-  <data name="6. Sınıf" xml:space="preserve">
-    <value>6th grade</value>
-  </data>
-  <data name="7. Sınıf" xml:space="preserve">
-    <value>7th grade</value>
-  </data>
-  <data name="8. Sınıf" xml:space="preserve">
-    <value>8th grade</value>
-  </data>
-  <data name="9. Sınıf" xml:space="preserve">
-    <value>9th grade</value>
+  <data name="Üye Ol" xml:space="preserve">
+    <value>Üye Ol</value>
   </data>
 </root>

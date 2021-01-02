@@ -73,5 +73,9 @@ namespace Pi_ETicaret_Sitesi.Repositories
                 resim = I.Urun.resim
             }).ToList();
         }
-    }
+        
+
+
+
+        }
 }
