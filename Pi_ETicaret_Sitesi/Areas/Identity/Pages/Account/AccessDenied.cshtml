@@ -3,8 +3,9 @@
 @{
     ViewData["Title"] = "Erişim İhlali";
 }
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 
 <header>
-    <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">Bu sayfaya giriş yetkiniz yoktur.Lütfen yetkili bir kullanıcı hesabıyla giriş yapınız</p>
+    <h1 class="text-danger">@localizer["Erişim İhlali"]</h1>
+    <p class="text-danger">@localizer["Bu sayfaya giriş yetkiniz yoktur.Lütfen yetkili bir kullanıcı hesabıyla giriş yapınız"]</p>
 </header>

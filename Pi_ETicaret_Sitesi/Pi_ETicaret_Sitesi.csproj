@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Areas\Admin\Views\" />
     <Folder Include="Resources\Views\Shared\Components\YorumComponent\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>

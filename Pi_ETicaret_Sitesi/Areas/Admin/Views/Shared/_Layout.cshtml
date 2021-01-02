@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -23,13 +24,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" asp-action="Index" asp-controller="Urun" asp-area="Admin" >Ürün İşlemleri<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" asp-action="Index" asp-controller="Urun" asp-area="Admin">@localizer["Ürün İşlemleri"]<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" asp-action="Index" asp-controller="Kategori" asp-area="Admin" >Kategori İşlemleri  <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" asp-action="Index" asp-controller="Kategori" asp-area="Admin">@localizer["Kategori İşlemleri"]  <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Çıkış Yap  <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" asp-action="Index" asp-controller="Home" asp-area="">@localizer["Anasayfa'ya Dön"]  <span class="sr-only">(current)</span></a>
                 </li>
 
             </ul>
@@ -42,6 +43,6 @@
     </div>
     <script src="~/jquery/jquery.min.js"></script>
     <script src="~/twitter-bootstrap/js/bootstrap.min.js"></script>
-    @RenderSection("JavaScript",false)
+    @RenderSection("JavaScript", false)
 </body>
 </html>
