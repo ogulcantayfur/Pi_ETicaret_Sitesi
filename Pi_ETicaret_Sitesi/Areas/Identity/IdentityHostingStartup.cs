@@ -25,7 +25,8 @@ namespace Pi_ETicaret_Sitesi.Areas.Identity
                     options.Password.RequireUppercase = false;
                     options.Password.RequireDigit = false;
                     options.Password.RequiredUniqueChars = 0;
-                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireNonAlphanumeric = false; 
+                    options.Password.RequiredLength = 1;
                 })
                     .AddRoles<IdentityRole>().AddEntityFrameworkStores<Context>();
             });

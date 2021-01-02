@@ -91,13 +91,13 @@ namespace Pi_ETicaret_Sitesi
                 roleResult2 = await RoleManager.CreateAsync(new IdentityRole("User"));
             }
 
-            if (!dbContext.Users.Any(u => u.UserName == "ogulcan"))
+            if (!dbContext.Users.Any(u => u.UserName == "@sakarya.edu.tr"))
             {
                 var adminUser = new AppUser
                 {
-                    UserName = "ogulcan",
+                    UserName = "@sakarya.edu.tr",
                 };
-                var result = await UserManager.CreateAsync(adminUser, "1");
+                var result = await UserManager.CreateAsync(adminUser, "123");
                 await UserManager.AddToRoleAsync(adminUser, new IdentityRole("Admin").Name);
             }
         }
