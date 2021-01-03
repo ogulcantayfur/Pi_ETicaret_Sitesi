@@ -30,9 +30,6 @@ namespace Pi_ETicaret_Sitesi
 
         public IConfiguration Configuration { get; }
 
-
-
-
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLocalization(opt => { opt.ResourcesPath = "Resources"; });
