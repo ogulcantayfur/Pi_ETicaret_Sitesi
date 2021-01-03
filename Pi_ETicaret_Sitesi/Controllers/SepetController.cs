@@ -27,13 +27,6 @@ namespace Pi_ETicaret_Sitesi.Controllers
             return View(_sepetRepository.GetirSepettekiUrunler());
         }
 
-        public IActionResult SepettenCikar(int id)
-        {
-            var cikarilacakUrun = _urunRepository.GetirIdile(id);
-            _sepetRepository.SepettenCikar(cikarilacakUrun);
-            return RedirectToAction("Sepet","Sepet");
-        }
-
         [Authorize]
         public IActionResult SepetiSatinAl(decimal fiyat)
         {

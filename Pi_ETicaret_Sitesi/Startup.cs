@@ -133,9 +133,6 @@ namespace Pi_ETicaret_Sitesi
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-                
-
-
                 endpoints.MapRazorPages();
             });
 

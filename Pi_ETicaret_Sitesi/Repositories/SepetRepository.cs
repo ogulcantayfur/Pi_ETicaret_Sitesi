@@ -29,15 +29,7 @@ namespace Pi_ETicaret_Sitesi.Repositories
             }
             _httpContextAccessor.HttpContext.Session.SetObject("sepet", gelenListe);
 
-        }
-        public void SepettenCikar(Urun urun)
-        {
-            var gelenListe =
-                _httpContextAccessor.HttpContext.Session.GetObject<List<Urun>>("sepet");
-            gelenListe.Remove(urun);
-
-            _httpContextAccessor.HttpContext.Session.SetObject("sepet", gelenListe);
-        }
+        }     
 
         public List<Urun> GetirSepettekiUrunler()
         {
